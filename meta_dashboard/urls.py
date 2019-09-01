@@ -19,11 +19,11 @@ urlpatterns = []
 
 subject_identifier_pattern = django_apps.get_app_config(
     "edc_identifier"
-).subject_identifier_pattern  # "092\-[0-9\-]+"
+).subject_identifier_pattern
 
 screening_identifier_pattern = django_apps.get_app_config(
     "edc_identifier"
-).screening_identifier_pattern  # "092\-[0-9\-]+"
+).screening_identifier_pattern
 
 
 urlpatterns = [
