@@ -26,10 +26,8 @@ if settings.APP_NAME == "meta_dashboard":
         protocol_name = "META"
         protocol_number = "092"
         protocol_title = ""
-        study_open_datetime = datetime(
-            2019, 7, 31, 0, 0, 0, tzinfo=gettz("UTC"))
-        study_close_datetime = datetime(
-            2022, 12, 31, 23, 59, 59, tzinfo=gettz("UTC"))
+        study_open_datetime = datetime(2019, 7, 31, 0, 0, 0, tzinfo=gettz("UTC"))
+        study_close_datetime = datetime(2022, 12, 31, 23, 59, 59, tzinfo=gettz("UTC"))
 
     class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
         configurations = [
@@ -53,9 +51,7 @@ if settings.APP_NAME == "meta_dashboard":
         }
 
     class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
-        visit_models = {
-            "meta_subject": ("subject_visit", "meta_subject.subjectvisit")
-        }
+        visit_models = {"meta_subject": ("subject_visit", "meta_subject.subjectvisit")}
 
     class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
         identifier_prefix = "092"

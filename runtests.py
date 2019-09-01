@@ -23,7 +23,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     EDC_BOOTSTRAP=3,
     SUBJECT_VISIT_MODEL="meta_subject.subjectvisit",
     SUBJECT_REQUISITION_MODEL="meta_subject.subjectrequisition",
-    SUBJECT_CONSENT_MODEL='meta_subject.subjectconsent',
+    SUBJECT_CONSENT_MODEL='meta_consent.subjectconsent',
     RANDOMIZATION_LIST_PATH=os.path.join(
         base_dir, app_name, "tests", "test_randomization_list.csv"),
     INSTALLED_APPS=[
@@ -52,6 +52,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_offstudy.apps.AppConfig",
         "edc_pharmacy.apps.AppConfig",
         "edc_pharmacy_dashboard.apps.AppConfig",
+        "edc_randomization.apps.AppConfig",
         "edc_reference.apps.AppConfig",
         "edc_registration.apps.AppConfig",
         "edc_review_dashboard.apps.AppConfig",
@@ -62,9 +63,10 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "meta_labs.apps.AppConfig",
         "meta_lists.apps.AppConfig",
         "meta_prn.apps.AppConfig",
-        "meta_rando.apps.AppConfig",
+        # "meta_rando.apps.AppConfig",
         "meta_reference.apps.AppConfig",
         "meta_screening.apps.AppConfig",
+        "meta_consent.apps.AppConfig",
         "meta_subject.apps.AppConfig",
         "meta_visit_schedule.apps.AppConfig",
         "meta_dashboard.apps.EdcProtocolAppConfig",

@@ -1,8 +1,8 @@
 from meta_dashboard.model_wrappers import SubjectScreeningModelWrapper
 from meta_rando.tests import MetaTestCaseMixin
 from meta_screening.models import SubjectScreening
-from meta_subject.models.subject_consent import SubjectConsent
-from meta_subject.models.subject_visit import SubjectVisit
+from meta_consent.models import SubjectConsent
+from meta_subject.models import SubjectVisit
 from django.test import TestCase, tag  # noqa
 from edc_appointment.models import Appointment
 from edc_model_wrapper.tests import ModelWrapperTestHelper

@@ -2,12 +2,14 @@
 {% if not eligible %}
 <div class="btn-group">
 <a type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
-Not eligible <span class="caret"></span>
+{% if eligible_final == TBD %}Pending{% else %}Not ELIGIBLE{% endif %} {% if eligible_final != TBD %}<span class="caret"></span>{% endif %}
 </a>
+{% if eligible_final != TBD %}
 <ul class="dropdown-menu" role="menu">
 	{% for line in comment %}
 		<li><a href="#"><small>{{ line }}</small></a></li>
 	{% endfor %}
 </ul>
+{% endif %}
 </div>
 {% endif %}
