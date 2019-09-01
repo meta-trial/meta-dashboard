@@ -7,7 +7,7 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from ...model_wrappers import SubjectScreeningModelWrapper
+from ...model_wrappers import ScreeningPartOneModelWrapper
 from .filters import ListboardViewFilters
 
 
@@ -24,12 +24,12 @@ class ListboardView(
     listboard_panel_style = "info"
     listboard_fa_icon = "fa-user-plus"
     listboard_view_filters = ListboardViewFilters()
-    listboard_model = "meta_screening.subjectscreening"
+    listboard_model = "meta_screening.screeningpartone"
     listboard_view_permission_codename = "edc_dashboard.view_screening_listboard"
 
     alternate_search_attr = "screening_identifier"
 
-    model_wrapper_cls = SubjectScreeningModelWrapper
+    model_wrapper_cls = ScreeningPartOneModelWrapper
     navbar_name = "meta_dashboard"
     navbar_selected_item = "screened_subject"
     ordering = "-report_datetime"

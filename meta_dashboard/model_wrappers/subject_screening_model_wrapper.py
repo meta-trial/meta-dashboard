@@ -51,3 +51,20 @@ class SubjectScreeningModelWrapper(ConsentModelWrapperMixin, ModelWrapper):
     @property
     def href_p3(self):
         return self.href.replace("subjectscreening", "screeningpartthree")
+
+
+class ScreeningPartOneModelWrapper(SubjectScreeningModelWrapper):
+
+    model = "meta_screening.screeningpartone"
+
+    @property
+    def href_p1(self):
+        return self.href
+
+    @property
+    def href_p2(self):
+        return self.href.replace("screeningpartone", "screeningparttwo")
+
+    @property
+    def href_p3(self):
+        return self.href.replace("screeningpartone", "screeningpartthree")
