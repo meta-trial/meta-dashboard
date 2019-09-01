@@ -1,0 +1,4 @@
+[run]
+include = meta_dashboard/*
+omit = meta_dashboard/tests/*,meta_dashboard/migrations/*
+branch = 1
