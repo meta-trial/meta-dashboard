@@ -32,12 +32,7 @@ setup(
     zip_safe=False,
     keywords='django meta dashboard',
     install_requires=[
-        #         'meta-ae',
-        #         'meta-lists',
-        #         'meta-permissions',
-        #         'meta-prn',
-        #         'meta-rando',
-        #         'meta-reports',
+        "beautifulsoup4",
         'meta_consent',
         'meta_subject',
         'edc-appointment',
