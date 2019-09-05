@@ -41,6 +41,13 @@ class SubjectScreeningModelWrapper(ConsentModelWrapperMixin, ModelWrapper):
             return None
 
     @property
+    def human_screening_identifier(self):
+        human = None
+        if self.screening_identifier:
+            human = f"{self.screening_identifier[0:3]}-{self.screening_identifier[3:6]}"
+        return human or self.screening_identifier
+
+    @property
     def href_p1(self):
         return self.href.replace("subjectscreening", "screeningpartone")
 
