@@ -1,5 +1,4 @@
 from meta_dashboard.model_wrappers import SubjectScreeningModelWrapper
-from meta_rando.tests import MetaTestCaseMixin
 from meta_screening.models import SubjectScreening
 from meta_consent.models import SubjectConsent
 from meta_subject.models import SubjectVisit
@@ -12,6 +11,7 @@ from edc_subject_model_wrappers import (
     SubjectConsentModelWrapper,
     SubjectVisitModelWrapper,
 )
+from meta_screening.tests.meta_test_case_mixin import MetaTestCaseMixin
 
 
 class SubjectModelWrapperTestHelper(ModelWrapperTestHelper):
@@ -27,7 +27,9 @@ class TestModelWrappers(MetaTestCaseMixin, TestCase):
     model_wrapper_helper_cls = SubjectModelWrapperTestHelper
 
     def setUp(self):
-        self.subject_identifier = self.create_subject()
+        subject_screening = self.get_subject_screening()
+        subject_consent = self.get_subject_consent(subject_screening)
+        self.subject_identifier = subject_consent.subject_identifier
 
     def test_subject_screening(self):
         subject_screening = SubjectScreening.objects.all()[0]

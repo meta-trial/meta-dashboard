@@ -7,7 +7,7 @@ import sys
 from django.conf import settings
 from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
-from os.path import abspath, dirname
+from os.path import abspath, dirname, join
 
 
 app_name = 'meta_dashboard'
@@ -21,11 +21,13 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     SITE_ID=10,
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     EDC_BOOTSTRAP=3,
+    ADVERSE_EVENT_ADMIN_SITE="meta_ae_admin",
+    ADVERSE_EVENT_APP_LABEL="meta_ae",
     SUBJECT_VISIT_MODEL="meta_subject.subjectvisit",
     SUBJECT_REQUISITION_MODEL="meta_subject.subjectrequisition",
     SUBJECT_CONSENT_MODEL='meta_consent.subjectconsent',
-    RANDOMIZATION_LIST_PATH=os.path.join(
-        base_dir, app_name, "tests", "test_randomization_list.csv"),
+    RANDOMIZATION_LIST_PATH=join(
+        base_dir, app_name, "tests", "etc", "randomization_list.csv"),
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
@@ -56,6 +58,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_reference.apps.AppConfig",
         "edc_registration.apps.AppConfig",
         "edc_review_dashboard.apps.AppConfig",
+        "edc_sites.apps.AppConfig",
         "edc_subject_dashboard.apps.AppConfig",
         "edc_timepoint.apps.AppConfig",
         "edc_visit_schedule.apps.AppConfig",
@@ -67,6 +70,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "meta_reference.apps.AppConfig",
         "meta_screening.apps.AppConfig",
         "meta_consent.apps.AppConfig",
+        "meta_sites.apps.AppConfig",
         "meta_subject.apps.AppConfig",
         "meta_visit_schedule.apps.AppConfig",
         "meta_dashboard.apps.EdcProtocolAppConfig",
