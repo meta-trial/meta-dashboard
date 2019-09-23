@@ -1,7 +1,6 @@
 meta-ae
 meta_labs
 meta_reference
-meta_reports
 meta_screening
 meta-subject
 meta_visit_schedule

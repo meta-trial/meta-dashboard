@@ -4,15 +4,18 @@ from django.utils.translation import gettext as _
 from edc_action_item.model_wrappers import (
     ActionItemModelWrapper as BaseActionItemModelWrapper,
 )
+from django.core.exceptions import ObjectDoesNotExist
+from django.utils.safestring import mark_safe
 from edc_adverse_event.constants import DEATH_REPORT_ACTION
-from edc_dashboard.view_mixins import EdcViewMixin
-from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMixin
+from edc_dashboard.view_mixins import (
+    EdcViewMixin,
+    ListboardFilterViewMixin,
+    SearchFormViewMixin,
+)
 from edc_dashboard.views import ListboardView as BaseListboardView
 from edc_navbar import NavbarViewMixin
 from meta_ae.models import DeathReport as DeathReportModel
-from meta_reports.death_report import DeathReport
-from django.core.exceptions import ObjectDoesNotExist
-from django.utils.safestring import mark_safe
+from meta_ae.pdf_reports import DeathReport
 
 from ...model_wrappers import DeathReportModelWrapper as BaseDeathReportModelWrapper
 
