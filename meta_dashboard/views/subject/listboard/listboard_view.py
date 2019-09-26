@@ -35,7 +35,14 @@ class ListboardView(
         return options
 
     def extra_search_options(self, search_term):
-        q = Q()
-        if re.match("^[A-Z]+$", search_term):
-            q = Q(first_name__exact=search_term)
-        return q
+        q_objects = []
+        if re.match("^[A-Za-z\-]+$", search_term):
+            q_objects.append(Q(initials__exact=search_term.upper()))
+            q_objects.append(Q(first_name__exact=search_term.upper()))
+            q_objects.append(
+                Q(screening_identifier__icontains=search_term.replace("-", "").upper())
+            )
+            q_objects.append(Q(subject_identifier__icontains=search_term))
+        if re.match("^[0-9]+$", search_term):
+            q_objects.append(Q(identity__exact=search_term))
+        return q_objects
