@@ -7,4 +7,3 @@ class SubjectReviewListboardView(Base):
 
     listboard_model = settings.SUBJECT_VISIT_MODEL
     model_wrapper_cls = SubjectVisitModelWrapper
-    navbar_name = "meta_dashboard"

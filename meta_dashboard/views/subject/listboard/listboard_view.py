@@ -24,7 +24,6 @@ class ListboardView(
     listboard_view_permission_codename = "edc_dashboard.view_subject_listboard"
 
     model_wrapper_cls = SubjectConsentModelWrapper
-    navbar_name = "meta_dashboard"
     navbar_selected_item = "consented_subject"
     search_form_url = "subject_listboard_url"
 

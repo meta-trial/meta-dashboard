@@ -1,8 +1,19 @@
 from edc_adverse_event.view_mixins import AeListboardViewMixin
-from meta_ae.pdf_reports import AeReport
+from reportlab.lib.units import cm
+
+from edc_adverse_event.pdf_reports import AeReport
+
+
+class CustomAeReport(AeReport):
+
+    logo_data = {
+        "app_label": "meta_edc",
+        "filename": "meta_logo.png",
+        "first_page": (4.0 * cm, 0.83 * cm),
+        "later_pages": (3.0 * cm, 0.625 * cm),
+    }
 
 
 class AeListboardView(AeListboardViewMixin):
-    navbar_name = "meta_dashboard"
-    listboard_back_url = "meta_dashboard:ae_home_url"
-    ae_report_cls = AeReport
+
+    pdf_report_cls = CustomAeReport
