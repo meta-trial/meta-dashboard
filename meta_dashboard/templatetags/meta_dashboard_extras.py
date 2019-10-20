@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from django import template
 from django.conf import settings
 from edc_dashboard.url_names import url_names
-from edc_constants.constants import TBD, YES
+from edc_constants.constants import TBD, YES, NO
 from meta_screening.eligibility import (
     calculate_eligible_final,
     eligibility_display_label,
@@ -28,7 +28,7 @@ def screening_button(context, model_wrapper):
     p2_enabled = (
         perms.user.has_perm("meta_screening.view_screeningparttwo")
         or perms.user.has_perm("meta_screening.change_screeningparttwo")
-    ) and p1 == YES
+    ) and p1 in [YES, NO]
     p3_enabled = (
         (
             perms.user.has_perm("meta_screening.view_screeningparttwo")
@@ -51,6 +51,7 @@ def screening_button(context, model_wrapper):
         p3_enabled=p3_enabled,
         title=title,
         YES=YES,
+        NO=NO,
         TBD=TBD,
     )
 
