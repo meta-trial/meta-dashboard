@@ -53,7 +53,7 @@
     <td>{{ result.human_screening_identifier }} </td>
     <td nowrap>{{ result.initials }}</td>
     <td nowrap>{{ result.age_in_years }} yrs</td>
-    <td nowrap>{% if "101" in result.consent.subject_identifier %}{{ result.consent.subject_identifier }}{% endif %}</td>
+    <td nowrap>{% if result.consent %}{{ result.consent.subject_identifier }}{% else %} -- {% endif %}</td>
     <td nowrap>{{ result.user_created }}</td>
     <td nowrap>{{ result.object.modified|date:"SHORT_DATETIME_FORMAT" }}</td>  
     <td nowrap>{{ result.hostname_created }}</td>
