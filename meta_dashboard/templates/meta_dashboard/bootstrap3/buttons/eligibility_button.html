@@ -2,9 +2,9 @@
 {% if not eligible %}
 <div class="btn-group">
 <a type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
-{{ display_label }}{% if display_label == "not eligible" %} <span class="caret"></span>{% endif %}
+{{ display_label }}{% if comment %} <span class="caret"></span>{% endif %}
 </a>
-{% if display_label == "not eligible" %}
+{% if comment %}
 <ul class="dropdown-menu" role="menu">
 	{% for line in comment %}
 		<li><a href="#"><small>{{ line }}</small></a></li>
