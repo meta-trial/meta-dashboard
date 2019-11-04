@@ -19,7 +19,16 @@ register = template.Library()
 def screening_button(context, model_wrapper):
     title = "Edit subject's screening form"
     perms = context["perms"]
+
     p1 = model_wrapper.object.eligible_part_one
+
+    continue_p2 = YES
+    if (
+        model_wrapper.object.eligible_part_one == NO
+        and model_wrapper.object.continue_part_two == NO
+    ):
+        continue_p2 = NO
+
     p2 = model_wrapper.object.eligible_part_two
     p3 = model_wrapper.object.eligible_part_three
     p1_enabled = perms.user.has_perms(
@@ -38,6 +47,7 @@ def screening_button(context, model_wrapper):
         and p2 == YES
     )
     return dict(
+        continue_p2=continue_p2,
         perms=context["perms"],
         screening_identifier=model_wrapper.object.screening_identifier,
         href_p1=model_wrapper.href_p1,
@@ -47,7 +57,7 @@ def screening_button(context, model_wrapper):
         p2=p2,
         p3=p3,
         p1_enabled=p1_enabled,
-        p2_enabled=p2_enabled,
+        p2_enabled=None if continue_p2 == NO else p2_enabled,
         p3_enabled=p3_enabled,
         title=title,
         YES=YES,
