@@ -4,7 +4,7 @@
     <i class="fas fa-pencil-alt fa-sm"></i> P1
 </a>
 <a id="subjectscreening_change_{{ screening_identifier }}" title="{{ title }}" role="button" 
-   class="btn btn-sm btn-{% if p2 == YES or p2 == NO %}success{% elif p2 == TBD %}warning{% else %}default{% endif %}"
+   class="btn btn-sm btn-{% if continue_p2 == NO %}default{% elif p2 == YES or p2 == NO %}success{% elif p2 == TBD %}warning{% else %}default{% endif %}"
        {% if p2_enabled %}href="{{ href_p2 }}"{% else %} disabled {% endif %}>
     <i class="fas fa-pencil-alt fa-sm"></i> P2
 </a>
