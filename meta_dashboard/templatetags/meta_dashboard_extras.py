@@ -105,6 +105,16 @@ def add_consent_button(context, model_wrapper):
     )
 
 
+def refusal_button(context, subject_refusal_model_wrapper):
+    title = ["Capture subject's primary reason for not joining."]
+
+    return dict(
+        perms=context["perms"],
+        href=subject_refusal_model_wrapper.href,
+        title=" ".join(title),
+    )
+
+
 @register.inclusion_tag(
     f"meta_dashboard/bootstrap{settings.EDC_BOOTSTRAP}/"
     f"buttons/dashboard_button.html"

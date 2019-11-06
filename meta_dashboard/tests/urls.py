@@ -46,6 +46,7 @@ urlpatterns = [
     path("edc_data_manager/", include("edc_data_manager.urls")),
     path("edc_device/", include("edc_device.urls")),
     path("edc_lab/", include("edc_lab.urls")),
+    path("edc_export/", include("edc_export.urls")),
     path("edc_lab_dashboard/", include("edc_lab_dashboard.urls")),
     path("edc_locator/", include("edc_locator.urls")),
     path("edc_pharmacy_dashboard/", include("edc_pharmacy_dashboard.urls")),
