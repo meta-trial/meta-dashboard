@@ -5,3 +5,4 @@ from .subject_screening_model_wrapper import (
     SubjectConsentModelWrapper,
     ScreeningPartOneModelWrapper,
 )
+from .subject_refusal_model_wrapper import SubjectRefusalModelWrapper
