@@ -44,7 +44,7 @@ class SubjectScreeningModelWrapper(ConsentModelWrapperMixin, ModelWrapper):
     def human_screening_identifier(self):
         human = None
         if self.screening_identifier:
-            human = f"{self.screening_identifier[0:3]}-{self.screening_identifier[3:6]}"
+            human = f"{self.screening_identifier[0:4]}-{self.screening_identifier[4:]}"
         return human or self.screening_identifier
 
     @property
