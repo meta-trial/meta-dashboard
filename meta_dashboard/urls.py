@@ -3,11 +3,11 @@ from edc_review_dashboard.views import SubjectReviewListboardView
 
 from .patterns import screening_identifier
 from .views import (
+    AeListboardView,
+    DeathReportListboardView,
     ScreeningListboardView,
     SubjectDashboardView,
     SubjectListboardView,
-    AeListboardView,
-    DeathReportListboardView,
 )
 
 app_name = "meta_dashboard"
